@@ -1,16 +1,34 @@
+import os
 import discord
 from discord.ext import commands
+from flask import Flask
+import threading
 
-bot = commands.Bot(command_prefix="!")
+# Set up a minimal Flask app to keep the process alive
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is up and running!"
+
+def run():
+    app.run(host='0.0.0.0', port=5000)
+
+threading.Thread(target=run).start()
+
+# Define your intents
+intents = discord.Intents.default()
+# Enable any privileged intents if you need them, for example:
+# intents.members = True
+
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
 
-# A simple command to test the bot
 @bot.command()
 async def ping(ctx):
     await ctx.send("Pong!")
 
-# Start the bot using the token stored in an environment variable
 bot.run(os.environ['MTM1NDU0MjYzOTY0Njc2OTE5Mg.GCJ9FS.18h-lCIO3WbZOySf1hwF8xycF9TPA1pV-qIJ-0'])
