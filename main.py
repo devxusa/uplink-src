@@ -19,7 +19,7 @@ async def submit(ctx):
             "1. Game Title\n"
             "2. Short Description\n"
             "3. Tags and Categories\n\n"
-            "⚠️WARNING⚠️ We are investigating the issue with the images. Please do NOT upload an image with your game, we will automatically add one."
+            "⚠️WARNING⚠️ We are investigating the issue with the images. Please do NOT upload an image with your game, we will automatically add one.\n"
             "Click the button below to submit your game."
         ),
         color=discord.Color.purple()
