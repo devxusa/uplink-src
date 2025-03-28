@@ -30,5 +30,5 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     await ctx.send("Pong!")
-
-bot.run(os.environ['MTM1NDU0MjYzOTY0Njc2OTE5Mg.GCJ9FS.18h-lCIO3WbZOySf1hwF8xycF9TPA1pV-qIJ-0'])
+    
+bot.run(os.environ["DISCORD_TOKEN"])
